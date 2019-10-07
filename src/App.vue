@@ -3,7 +3,7 @@
     <nav class="navbar">
       <div class="navbar-container">
         <router-link class="navbar-brand" to="/" exact>
-          Hacker News
+          <img src="./assets/logo.png" width="32" height="32" alt="Hacker News">
         </router-link>
 
         <ul class="navbar-nav navbar-right">
@@ -45,6 +45,12 @@ body {
     margin-right: $spacer;
     color: $white;
     text-decoration: none;
+    padding-top: $spacer * .25;
+    padding-bottom: $spacer * .25;
+
+    > img {
+      display: block;
+    }
   }
 
   .navbar-nav {
