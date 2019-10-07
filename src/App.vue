@@ -6,6 +6,24 @@
           <img src="./assets/logo.png" width="32" height="32" alt="Hacker News">
         </router-link>
 
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/top">Top</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/new">New</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/show">Show</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/ask">Ask</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/job">Jobs</router-link>
+          </li>
+        </ul>
+
         <ul class="navbar-nav navbar-right">
           <li class="nav-item">
             <a class="nav-link" href="https://github.com/asumranphan/vue-hackernews">
