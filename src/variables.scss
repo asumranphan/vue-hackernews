@@ -39,3 +39,13 @@ $headings-color: $gray-900;
 $link-color: $gray-900;
 $link-hover-color: $gray-900;
 $link-active-color: $primary;
+
+// Navbar
+$navbar-background: $primary;
+
+$navbar-padding-y: $spacer * .5;
+$navbar-padding-x: $spacer;
+
+$navbar-link-color: rgba($white, .8);
+$navbar-link-hover-color: $white;
+$navbar-link-active-color: $white;
