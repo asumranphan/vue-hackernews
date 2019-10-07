@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import TypeView from './views/TypeView.vue'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: []
+  routes: [
+    { path: '/:type(top|new|show|ask|job)/:page(\\d+)?', 'component': TypeView, props: true },
+  ]
 })
