@@ -1,5 +1,5 @@
 <template>
-  <div class="type-view"></div>
+  <div class="stories-view"></div>
 </template>
 
 <script>
