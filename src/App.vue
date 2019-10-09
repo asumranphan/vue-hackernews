@@ -45,10 +45,14 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: 1.5;
+  padding-top: 70px;
   margin: 0;
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: $navbar-background;
 
   .navbar-container {
