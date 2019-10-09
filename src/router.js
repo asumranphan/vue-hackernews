@@ -8,6 +8,6 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/:type(top|new|show|ask|job)/:page(\\d+)?', 'component': TypeView, props: true },
+    { path: '/:type(top|new|show|ask|job)', 'component': TypeView, props: true }
   ]
 })

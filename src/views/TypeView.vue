@@ -5,8 +5,7 @@
 <script>
 export default {
   props: {
-    type: String,
-    page: Number
+    type: String
   }
 }
 </script>
