@@ -8,6 +8,7 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/:type(top|new|show|ask|job)', 'component': ListView, props: true }
+    { path: '/:type(top|new|show|ask|job)', 'component': ListView, props: true },
+    { path: '/', redirect: '/top' }
   ]
 })
