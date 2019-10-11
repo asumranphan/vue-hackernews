@@ -9,11 +9,19 @@
         >
         </item>
       </div>
+
+      <infinite-loading
+        @infinite="loadItems"
+        spinner="waveDots"
+      >
+        <span slot="no-more"></span>
+      </infinite-loading>
     </div>
   </div>
 </template>
 
 <script>
+import InfiniteLoading from 'vue-infinite-loading'
 import Item from '../components/Item.vue'
 
 export default {
@@ -28,22 +36,29 @@ export default {
     }
   },
 
-  components: { Item },
+  components: {
+    InfiniteLoading,
+    Item
+  },
 
   methods: {
-    loadItems () {
+    loadItems ($state) {
       this.$store.dispatch('FETCH_LIST_DATA', {
         type: this.type,
         page: this.page
       }).then(() => {
         const items = this.$store.getters.activeItems(this.page)
-        this.items.push(...items)
+
+        if (items.length) {
+          this.items.push(...items)
+          $state.loaded()
+        } else {
+          $state.complete()
+        }
+
+        this.page++
       })
     }
-  },
-
-  mounted () {
-    this.loadItems()
   }
 }
 </script>
