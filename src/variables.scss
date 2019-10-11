@@ -26,18 +26,9 @@ $font-family-base: $font-family-sans-serif;
 
 $font-size-base: 1rem;
 
-$h1-font-size: $font-size-base * 2.5;
-$h2-font-size: $font-size-base * 2;
-$h3-font-size: $font-size-base * 1.75;
-$h4-font-size: $font-size-base * 1.5;
-$h5-font-size: $font-size-base * 1.25;
-$h6-font-size: $font-size-base;
-
-$headings-color: $gray-900;
-
 // Links
 $link-color: $gray-900;
-$link-hover-color: $gray-900;
+$link-hover-color: $primary;
 $link-active-color: $primary;
 
 // Navbar
