@@ -54,6 +54,8 @@ body {
   top: 0;
   width: 100%;
   background: $navbar-background;
+  padding-top: $navbar-padding-y;
+  padding-bottom: $navbar-padding-y;
 
   .navbar-container {
     display: flex;
@@ -61,7 +63,8 @@ body {
     align-items: center;
     max-width: 800px;
     margin: 0 auto;
-    padding: $navbar-padding-y 0;
+    padding-left: $navbar-padding-x;
+    padding-right: $navbar-padding-x;
   }
 
   .navbar-brand {
