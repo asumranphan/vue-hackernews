@@ -25,15 +25,50 @@ export default new Vuex.Store({
 
     SET_LIST: (state, { type, ids }) => {
       state.lists[type] = ids
+    },
+
+    SET_ITEMS: (state, { items }) => {
+      items.forEach(item => {
+        if (item) {
+          Vue.set(state.items, item.id, item)
+        }
+      })
     }
   },
 
   actions: {
-    FETCH_LIST_DATA: ({ commit }, { type }) => {
+    FETCH_LIST_DATA: ({ dispatch, commit, getters }, { type, page }) => {
       commit('SET_ACTIVE_TYPE', { type })
 
       return api.fetchIdsByType(type)
         .then(ids => commit('SET_LIST', { type, ids }))
+        .then(() => dispatch('FETCH_ITEMS', {
+          ids: getters.activeIds(page)
+        }))
+    },
+
+    FETCH_ITEMS: ({ commit }, { ids }) => {
+      return api.fetchItems(ids)
+        .then(items => commit('SET_ITEMS', { items }))
+    }
+  },
+
+  getters: {
+    activeIds: state => page => {
+      const { activeType, itemsPerPage, lists } = state
+
+      if (!activeType) {
+        return []
+      }
+
+      const start = (page - 1) * itemsPerPage
+      const end = page * itemsPerPage
+
+      return lists[activeType].slice(start, end)
+    },
+
+    activeItems: (state, getters) => page => {
+      return getters.activeIds(page).map(id => state.items[id])
     }
   }
 })

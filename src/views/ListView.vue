@@ -2,7 +2,12 @@
   <div class="stories-view">
     <div class="stories-container">
       <div class="stories-list">
-        <item :item="item"></item>
+        <item
+          v-for="item in items"
+          :key="item.id"
+          :item="item"
+        >
+        </item>
       </div>
     </div>
   </div>
@@ -18,19 +23,28 @@ export default {
 
   data () {
     return {
-      item: {
-        id: 21190004,
-        title: "Tech talks at sea: Join Flexport for a cruise of the Oakland port",
-        score: 1,
-        by: "thedogeye",
-        type: "job",
-        time: 1570523379,
-        url: "https://techtalksatseavision.splashthat.com/"
-      }
+      page: 1,
+      items: []
     }
   },
 
-  components: { Item }
+  components: { Item },
+
+  methods: {
+    loadItems () {
+      this.$store.dispatch('FETCH_LIST_DATA', {
+        type: this.type,
+        page: this.page
+      }).then(() => {
+        const items = this.$store.getters.activeItems(this.page)
+        this.items.push(...items)
+      })
+    }
+  },
+
+  mounted () {
+    this.loadItems()
+  }
 }
 </script>
 
