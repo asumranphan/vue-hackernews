@@ -49,3 +49,18 @@ $navbar-padding-x: $spacer;
 $navbar-link-color: rgba($white, .8);
 $navbar-link-hover-color: $white;
 $navbar-link-active-color: $white;
+
+// Story
+$story-item-border-color: $gray-200;
+
+$story-item-padding-y: $spacer;
+$story-item-padding-x: $spacer * 1.25;
+
+$story-item-score-color: $primary;
+$story-item-score-font-size: $font-size-base;
+
+$story-item-title-color: $gray-800;
+$story-item-title-font-size: $font-size-base * .9;
+
+$story-item-meta-color: $gray-600;
+$story-item-meta-font-size: $font-size-base * .75;
