@@ -19,3 +19,7 @@ function fetch(child) {
 export function fetchIdsByType(type) {
   return fetch(`${type}stories`)
 }
+
+export function fetchItems(ids) {
+  return Promise.all(ids.map(id => fetch(`item/${id}`)))
+}
