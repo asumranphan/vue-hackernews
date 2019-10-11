@@ -56,6 +56,7 @@ body {
   background: $navbar-background;
   padding-top: $navbar-padding-y;
   padding-bottom: $navbar-padding-y;
+  z-index: 1;
 
   .navbar-container {
     display: flex;
