@@ -70,10 +70,16 @@ export default {
     padding-right: $spacer;
     margin: 0 auto;
     max-width: 800px;
+
+    @media (max-width: 480px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .stories-list {
     background: $white;
+    margin-bottom: $spacer;
   }
 }
 </style>

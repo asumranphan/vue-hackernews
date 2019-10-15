@@ -25,9 +25,14 @@ export default {
 <style lang="scss" scoped>
 .stories-item {
   position: relative;
-  padding: $story-item-padding-y $story-item-padding-x;
+  padding: ($story-item-padding-y * .5) $story-item-padding-x;
   padding-left: $story-item-padding-x * 4;
   border-bottom: 1px solid $story-item-border-color;
+
+  @media (min-width: 768px) {
+    padding: $story-item-padding-y $story-item-padding-x;
+    padding-left: $story-item-padding-x * 4;
+  }
 
   .item-score {
     position: absolute;
@@ -43,7 +48,7 @@ export default {
 
   .item-title {
     font-size: $story-item-title-font-size;
-    line-height: 24px;
+    line-height: 22px;
     margin: 0;
   }
 

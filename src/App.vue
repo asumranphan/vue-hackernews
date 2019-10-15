@@ -57,6 +57,7 @@ body {
   padding-top: $navbar-padding-y;
   padding-bottom: $navbar-padding-y;
   z-index: 1;
+  box-shadow: 0 5px 2rem $gray-500;
 
   .navbar-container {
     display: flex;
@@ -64,17 +65,26 @@ body {
     align-items: center;
     max-width: 800px;
     margin: 0 auto;
-    padding-left: $navbar-padding-x;
-    padding-right: $navbar-padding-x;
+    padding-left: $navbar-padding-x * .5;
+    padding-right: $navbar-padding-x * .5;
+
+    @media (min-width: 768px) {
+      padding-left: $navbar-padding-x;
+      padding-right: $navbar-padding-x;
+    }
   }
 
   .navbar-brand {
     display: inline-block;
-    margin-right: $spacer;
+    margin-right: $spacer * .5;
     color: $white;
     text-decoration: none;
     padding-top: $spacer * .25;
     padding-bottom: $spacer * .25;
+
+    @media (min-width: 768px) {
+      margin-right: $spacer;
+    }
 
     > img {
       display: block;
@@ -91,6 +101,10 @@ body {
     &.navbar-right {
       margin-left: auto;
 
+      @media (max-width: 480px) {
+        display: none;
+      }
+
       .nav-item {
         margin-right: 0;
         margin-left: $spacer * .5;
@@ -103,9 +117,13 @@ body {
       .nav-link {
         display: block;
         color: $navbar-link-color;
-        padding: $spacer * .5;
+        padding: $spacer * .25;
         text-decoration: none;
         transition: color .25s ease;
+
+        @media (min-width: 768px) {
+          padding: $spacer * .5;
+        }
 
         &:hover {
           color: $navbar-link-hover-color;
