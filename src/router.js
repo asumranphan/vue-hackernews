@@ -4,11 +4,24 @@ import ListView from './views/ListView.vue'
 
 Vue.use(Router)
 
+function createListView (type) {
+  return {
+    name: `stories-${type}-view`,
+    render (h) {
+      return h(ListView, { props: { type }})
+    }
+  }
+}
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/:type(top|new|show|ask|job)', 'component': ListView, props: true },
+    { path: '/top', 'component': createListView('top') },
+    { path: '/new', 'component': createListView('new') },
+    { path: '/show', 'component': createListView('show') },
+    { path: '/ask', 'component': createListView('ask') },
+    { path: '/job', 'component': createListView('job') },
     { path: '/', redirect: '/top' }
   ]
 })
