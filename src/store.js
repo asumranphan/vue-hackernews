@@ -72,7 +72,7 @@ export default new Vuex.Store({
     },
 
     activeItems: (state, getters) => page => {
-      return getters.activeIds(page).map(id => state.items[id])
+      return getters.activeIds(page).map(id => state.items[id]).filter(_ => _)
     }
   }
 })
