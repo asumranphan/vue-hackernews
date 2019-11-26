@@ -50,13 +50,12 @@ export default {
         const items = this.$store.getters.activeItems(this.page)
 
         if (items.length) {
+          this.page += 1;
           this.items.push(...items)
           $state.loaded()
         } else {
           $state.complete()
         }
-
-        this.page++
       })
     }
   }
