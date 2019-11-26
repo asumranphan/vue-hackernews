@@ -40,6 +40,10 @@ export default new Vuex.Store({
     FETCH_LIST_DATA: ({ dispatch, commit, getters }, { type, page }) => {
       commit('SET_ACTIVE_TYPE', { type })
 
+      if (getters.activeItems(page).length) {
+        return Promise.resolve()
+      }
+
       return api.fetchIdsByType(type)
         .then(ids => commit('SET_LIST', { type, ids }))
         .then(() => dispatch('FETCH_ITEMS', {
