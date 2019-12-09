@@ -43,6 +43,7 @@ export default {
 
   methods: {
     loadItems ($state) {
+      this.$bar.start()
       this.$store.dispatch('FETCH_LIST_DATA', {
         type: this.type,
         page: this.page
@@ -56,6 +57,10 @@ export default {
         } else {
           $state.complete()
         }
+
+        this.$bar.finish()
+      }).catch(() => {
+        this.$bar.fail()
       })
     }
   }
