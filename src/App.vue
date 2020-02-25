@@ -45,7 +45,7 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: 1.5;
-  padding-top: 70px;
+  padding-top: 50px;
   margin: 0;
 }
 
