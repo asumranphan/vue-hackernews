@@ -20,7 +20,7 @@ export default {
       percent: 0,
       duration: 3000,
       height: '2px',
-      color: '#efc14e',
+      color: '#35495d',
       failedColor: '#ff0000'
     }
   },
