@@ -2,7 +2,7 @@
 
 Test building a Hacker News Apps with Vue.js
 
-![Vue HackerNews](https://repository-images.githubusercontent.com/210501221/8bdcd980-57c2-11ea-9955-d0994c9f1db7)
+![Vue HackerNews](https://repository-images.githubusercontent.com/210501221/a6758800-5880-11ea-8301-25b289bf5cf3)
 
 [Live Demo](https://vue-hackernews.asumranphan.now.sh)
 
