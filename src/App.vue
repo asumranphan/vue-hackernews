@@ -1,28 +1,138 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <router-link class="navbar-brand" to="/" exact>
+          <img src="./assets/logo.png" width="32" height="32" alt="Hacker News">
+        </router-link>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/top">Top</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/new">New</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/show">Show</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/ask">Ask</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/job">Jobs</router-link>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/asumranphan/vue-hackernews">
+              Build with Vue.js
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <router-view></router-view>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  background: $body-bg;
+  color: $body-color;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  padding-top: 50px;
+  margin: 0;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: $navbar-background;
+  padding-top: $navbar-padding-y;
+  padding-bottom: $navbar-padding-y;
+  z-index: 1;
+  box-shadow: 0 5px 2rem $gray-500;
+
+  .navbar-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: $navbar-padding-x * .5;
+    padding-right: $navbar-padding-x * .5;
+
+    @media (min-width: 768px) {
+      padding-left: $navbar-padding-x;
+      padding-right: $navbar-padding-x;
+    }
+  }
+
+  .navbar-brand {
+    display: inline-block;
+    margin-right: $spacer * .5;
+    color: $white;
+    text-decoration: none;
+    padding-top: $spacer * .25;
+    padding-bottom: $spacer * .25;
+
+    @media (min-width: 768px) {
+      margin-right: $spacer;
+    }
+
+    > img {
+      display: block;
+    }
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    &.navbar-right {
+      margin-left: auto;
+
+      @media (max-width: 480px) {
+        display: none;
+      }
+
+      .nav-item {
+        margin-right: 0;
+        margin-left: $spacer * .5;
+      }
+    }
+
+    .nav-item {
+      margin-right: $spacer * .5;
+
+      .nav-link {
+        display: block;
+        color: $navbar-link-color;
+        padding: $spacer * .25;
+        text-decoration: none;
+        transition: color .25s ease;
+
+        @media (min-width: 768px) {
+          padding: $spacer * .5;
+        }
+
+        &:hover {
+          color: $navbar-link-hover-color;
+        }
+
+        &.router-link-active {
+          color: $navbar-link-active-color;
+        }
+      }
     }
   }
 }
